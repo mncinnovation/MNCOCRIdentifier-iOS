@@ -138,7 +138,7 @@
             if ([lowerLineText containsString:@"tempat"] || [lowerLineText containsString:@"lahir"] || [lowerLineText containsString:@"tgl"]) {
                 NSError *error = nil;
                 NSRegularExpression *regexDate = [NSRegularExpression regularExpressionWithPattern:@"\\d\\d-\\d\\d-\\d\\d\\d\\d"
-                                                                                       options:NSRegularExpressionCaseInsensitive error:&error];
+                                                                                           options:NSRegularExpressionCaseInsensitive error:&error];
                 
                 NSString *date = line.elements.lastObject.text;
                 NSString *place = nil;
@@ -154,7 +154,7 @@
                                                                                               options:NSRegularExpressionCaseInsensitive
                                                                                                 error:&error];
                     NSArray *regexArrayTTL = [regexTTL matchesInString:ttl options:0 range:NSMakeRange(0, ttl.length)];
-                                        
+                    
                     if (regexArrayTTL > 0) {
                         NSMutableArray<NSString*> *resultArrayTTL = [NSMutableArray<NSString*> new];
                         
@@ -171,14 +171,14 @@
                 
                 ktpData.tempatLahir = place;
                 ktpData.tanggalLahir = [self filterNumberOnly:date];
-
+                
             }
             
             if ([lowerLineText containsString:@"jenis"] || [lowerLineText containsString:@"kelamin"]) {
                 NSString *jenisKelamin = nil;
                 NSError *error = nil;
                 NSRegularExpression *regexJK = [NSRegularExpression regularExpressionWithPattern:@"LAKI-LAKI|PEREMPUAN|LAKI"
-                                                                                       options:NSRegularExpressionCaseInsensitive error:&error];
+                                                                                         options:NSRegularExpressionCaseInsensitive error:&error];
                 
                 NSArray *regexArrayJK = [regexJK matchesInString:lineText options:0 range:NSMakeRange(0, lineText.length)];
                 
@@ -355,36 +355,77 @@
         [arrayCharacter addObject:ichar];
     }
     NSError *error = nil;
-    NSRegularExpression *regexCharacterNumberOnly = [NSRegularExpression regularExpressionWithPattern:@"^[0-9]*$"
-                                                                           options:NSRegularExpressionCaseInsensitive error:&error];
+    NSRegularExpression *regexCharacterNumberOnly = [NSRegularExpression regularExpressionWithPattern:@"^[0-9]*$" options:NSRegularExpressionCaseInsensitive error:&error];
     for (NSString *character in arrayCharacter) {
         NSString *numberString = character;
-
+        
         NSArray *regexResults = [regexCharacterNumberOnly matchesInString:numberString options:0 range:NSMakeRange(0, numberString.length)];
         if (regexResults.count == 0) {
-            if ([numberString isEqual:@"L"] || [numberString isEqual:@"I"] || [numberString isEqual:@"l"] || [numberString isEqual:@"i"] || [numberString isEqual:@"J"] || [numberString isEqual:@"j"]) {
-                numberString = @"1";
-            } else if ([numberString isEqual:@"Z"] || [numberString isEqual:@"z"]) {
-                numberString = @"2";
-            } else if ([numberString isEqual:@"B"]) {
-                numberString = @"3";
-            } else if ([numberString isEqual:@"A"]) {
-                numberString = @"4";
-            } else if ([numberString isEqual:@"S"] || [numberString isEqual:@"s"]) {
-                numberString = @"5";
-            } else if ([numberString isEqual:@"b"] || [numberString isEqual:@"G"]) {
-                numberString = @"6";
-            } else if ([numberString isEqual:@"T"]) {
-                numberString = @"7";
-            } else if ([numberString isEqual:@"g"] || [numberString isEqual:@"q"]) {
-                numberString = @"9";
-            } else if ([numberString isEqual:@"o"] || [numberString isEqual:@"O"]) {
-                numberString = @"0";
-            } else {
-                numberString = @"";
+            
+            MOINumberValidationModel *numberValidationModel = [self getCommonTextObject].numberValidationModel;
+            
+            for (NSString *text in numberValidationModel.firstArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"1";
+                }
+            }
+            
+            for (NSString *text in numberValidationModel.secondArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"2";
+                }
+            }
+            
+            for (NSString *text in numberValidationModel.thirdArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"3";
+                }
+            }
+            
+            for (NSString *text in numberValidationModel.fourthArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"4";
+                }
+            }
+            
+            for (NSString *text in numberValidationModel.fifthArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"5";
+                }
+            }
+            
+            for (NSString *text in numberValidationModel.sixthArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"6";
+                }
+            }
+            
+            for (NSString *text in numberValidationModel.seventhArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"7";
+                }
+            }
+            
+            for (NSString *text in numberValidationModel.eighthArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"8";
+                }
+            }
+            
+            for (NSString *text in numberValidationModel.ninethArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"9";
+                }
+            }
+            
+            for (NSString *text in numberValidationModel.zeroArray) {
+                if ([numberString isEqual:text]) {
+                    numberString = @"0";
+                }
             }
         }
         result = [NSString stringWithFormat:@"%@%@", result, numberString];
+        result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     }
     
     return result;
@@ -474,7 +515,7 @@
             return @"CERAI MATI";
         }
     }
-
+    
     return @"";
 }
 

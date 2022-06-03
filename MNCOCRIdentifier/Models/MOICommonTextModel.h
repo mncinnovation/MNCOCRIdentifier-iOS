@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "MOIReligionModel.h"
 #import "MOIMarriageStatusModel.h"
+#import "MOINumberValidationModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) MOIReligionModel *religionModel;
 @property (nonatomic) MOIMarriageStatusModel *marriageStatusModel;
+@property (nonatomic) MOINumberValidationModel *numberValidationModel;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

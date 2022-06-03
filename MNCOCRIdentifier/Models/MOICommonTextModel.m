@@ -13,6 +13,7 @@
     if (self = [super init]) {
         self.religionModel = [[MOIReligionModel alloc] initWithDictionary:dictionary[@"religions"]];
         self.marriageStatusModel = [[MOIMarriageStatusModel alloc] initWithDictionary:dictionary[@"marriageStatus"]];
+        self.numberValidationModel = [[MOINumberValidationModel alloc] initWithDictionary:dictionary[@"numberValidation"]];
     }
     return self;
 }
