@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		693BE4B92844C1E1004FA3E3 /* MNCOCRIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4B82844C1E1004FA3E3 /* MNCOCRIdentifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		693BE4C02844C296004FA3E3 /* CommonText.json in Resources */ = {isa = PBXBuildFile; fileRef = 693BE4BF2844C296004FA3E3 /* CommonText.json */; };
+		693BE4C32844C2B6004FA3E3 /* MNCOCRIdentifierClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4C12844C2B6004FA3E3 /* MNCOCRIdentifierClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		693BE4C42844C2B6004FA3E3 /* MNCOCRIdentifierClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4C22844C2B6004FA3E3 /* MNCOCRIdentifierClient.m */; };
+		693BE4C92844C384004FA3E3 /* MOISplashScreenViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4C72844C384004FA3E3 /* MOISplashScreenViewController.h */; };
+		693BE4CA2844C384004FA3E3 /* MOISplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4C82844C384004FA3E3 /* MOISplashScreenViewController.m */; };
+		693BE4CE2844C3F0004FA3E3 /* MOIIdentifierViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4CC2844C3F0004FA3E3 /* MOIIdentifierViewController.h */; };
+		693BE4CF2844C3F0004FA3E3 /* MOIIdentifierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4CD2844C3F0004FA3E3 /* MOIIdentifierViewController.m */; };
+		693BE4D32844C40E004FA3E3 /* MOICorrectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4D12844C40E004FA3E3 /* MOICorrectionViewController.h */; };
+		693BE4D42844C40E004FA3E3 /* MOICorrectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4D22844C40E004FA3E3 /* MOICorrectionViewController.m */; };
+		693BE4D82844C42E004FA3E3 /* MOIVerificationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4D62844C42E004FA3E3 /* MOIVerificationViewController.h */; };
+		693BE4D92844C42E004FA3E3 /* MOIVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4D72844C42E004FA3E3 /* MOIVerificationViewController.m */; };
+		693BE4E02844C48D004FA3E3 /* MOIExtractKTPData.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4DE2844C48D004FA3E3 /* MOIExtractKTPData.h */; };
+		693BE4E12844C48D004FA3E3 /* MOIExtractKTPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4DF2844C48D004FA3E3 /* MOIExtractKTPData.m */; };
+		693BE4E42844C49C004FA3E3 /* MOIUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4E22844C49C004FA3E3 /* MOIUtils.h */; };
+		693BE4E52844C49C004FA3E3 /* MOIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4E32844C49C004FA3E3 /* MOIUtils.m */; };
+		693BE4E82844C558004FA3E3 /* MOIKTPEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4E62844C558004FA3E3 /* MOIKTPEnums.h */; };
+		693BE4E92844C558004FA3E3 /* MOIKTPEnums.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4E72844C558004FA3E3 /* MOIKTPEnums.m */; };
+		693BE4EC2844C57C004FA3E3 /* asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693BE4EB2844C57C004FA3E3 /* asset.xcassets */; };
+		693BE4F02844C597004FA3E3 /* MOIComparationModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4EE2844C597004FA3E3 /* MOIComparationModel.h */; };
+		693BE4F12844C597004FA3E3 /* MOIComparationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4EF2844C597004FA3E3 /* MOIComparationModel.m */; };
+		693BE4F42844C5A6004FA3E3 /* MOIKTPDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4F22844C5A6004FA3E3 /* MOIKTPDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		693BE4F52844C5A6004FA3E3 /* MOIKTPDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4F32844C5A6004FA3E3 /* MOIKTPDataModel.m */; };
+		693BE4F82844C5BA004FA3E3 /* MNCOCRIdentifierResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4F62844C5BA004FA3E3 /* MNCOCRIdentifierResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		693BE4F92844C5BA004FA3E3 /* MNCOCRIdentifierResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4F72844C5BA004FA3E3 /* MNCOCRIdentifierResult.m */; };
+		693BE4FC2844C5D5004FA3E3 /* MOIReligionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4FA2844C5D5004FA3E3 /* MOIReligionModel.h */; };
+		693BE4FD2844C5D5004FA3E3 /* MOIReligionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4FB2844C5D5004FA3E3 /* MOIReligionModel.m */; };
+		693BE5002844C5F3004FA3E3 /* MOIMarriageStatusModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4FE2844C5F3004FA3E3 /* MOIMarriageStatusModel.h */; };
+		693BE5012844C5F3004FA3E3 /* MOIMarriageStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE4FF2844C5F3004FA3E3 /* MOIMarriageStatusModel.m */; };
+		693BE5042844C605004FA3E3 /* MOICommonTextModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE5022844C605004FA3E3 /* MOICommonTextModel.h */; };
+		693BE5052844C605004FA3E3 /* MOICommonTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE5032844C605004FA3E3 /* MOICommonTextModel.m */; };
+		693BE5082844C616004FA3E3 /* MOINumberValidationModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE5062844C615004FA3E3 /* MOINumberValidationModel.h */; };
+		693BE5092844C616004FA3E3 /* MOINumberValidationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE5072844C616004FA3E3 /* MOINumberValidationModel.m */; };
+		693BE50D2845B9A8004FA3E3 /* MOIICameraView.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE50B2845B9A8004FA3E3 /* MOIICameraView.h */; };
+		693BE50E2845B9A8004FA3E3 /* MOIICameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE50C2845B9A8004FA3E3 /* MOIICameraView.m */; };
+		693BE5112845B9B7004FA3E3 /* MOIIKTPFrameView.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE50F2845B9B7004FA3E3 /* MOIIKTPFrameView.h */; };
+		693BE5122845B9B7004FA3E3 /* MOIIKTPFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE5102845B9B7004FA3E3 /* MOIIKTPFrameView.m */; };
+		693BE5152845B9C6004FA3E3 /* MOIIBottomView.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE5132845B9C6004FA3E3 /* MOIIBottomView.h */; };
+		693BE5162845B9C6004FA3E3 /* MOIIBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE5142845B9C6004FA3E3 /* MOIIBottomView.m */; };
+		693BE51A2845C1FD004FA3E3 /* MNCOCRIdentifierDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4DC2844C455004FA3E3 /* MNCOCRIdentifierDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8FBFCA97367BE825B9874D4 /* Pods_MNCOCRIdentifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E23F4F687830F9C009F93BC /* Pods_MNCOCRIdentifier.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		35491DB3E7B7FC6F19FFEDAE /* Pods-MNCOCRIdentifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MNCOCRIdentifier.release.xcconfig"; path = "../../ML Kit/Pods/Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier.release.xcconfig"; sourceTree = "<group>"; };
+		3E23F4F687830F9C009F93BC /* Pods_MNCOCRIdentifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MNCOCRIdentifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		693BE4B52844C1E1004FA3E3 /* MNCOCRIdentifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MNCOCRIdentifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		693BE4B82844C1E1004FA3E3 /* MNCOCRIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNCOCRIdentifier.h; sourceTree = "<group>"; };
+		693BE4BF2844C296004FA3E3 /* CommonText.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CommonText.json; sourceTree = "<group>"; };
+		693BE4C12844C2B6004FA3E3 /* MNCOCRIdentifierClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNCOCRIdentifierClient.h; sourceTree = "<group>"; };
+		693BE4C22844C2B6004FA3E3 /* MNCOCRIdentifierClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNCOCRIdentifierClient.m; sourceTree = "<group>"; };
+		693BE4C72844C384004FA3E3 /* MOISplashScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOISplashScreenViewController.h; sourceTree = "<group>"; };
+		693BE4C82844C384004FA3E3 /* MOISplashScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOISplashScreenViewController.m; sourceTree = "<group>"; };
+		693BE4CC2844C3F0004FA3E3 /* MOIIdentifierViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIIdentifierViewController.h; sourceTree = "<group>"; };
+		693BE4CD2844C3F0004FA3E3 /* MOIIdentifierViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIIdentifierViewController.m; sourceTree = "<group>"; };
+		693BE4D12844C40E004FA3E3 /* MOICorrectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOICorrectionViewController.h; sourceTree = "<group>"; };
+		693BE4D22844C40E004FA3E3 /* MOICorrectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOICorrectionViewController.m; sourceTree = "<group>"; };
+		693BE4D62844C42E004FA3E3 /* MOIVerificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIVerificationViewController.h; sourceTree = "<group>"; };
+		693BE4D72844C42E004FA3E3 /* MOIVerificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIVerificationViewController.m; sourceTree = "<group>"; };
+		693BE4DC2844C455004FA3E3 /* MNCOCRIdentifierDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNCOCRIdentifierDelegate.h; sourceTree = "<group>"; };
+		693BE4DD2844C465004FA3E3 /* MOIDismissDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIDismissDelegate.h; sourceTree = "<group>"; };
+		693BE4DE2844C48D004FA3E3 /* MOIExtractKTPData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIExtractKTPData.h; sourceTree = "<group>"; };
+		693BE4DF2844C48D004FA3E3 /* MOIExtractKTPData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIExtractKTPData.m; sourceTree = "<group>"; };
+		693BE4E22844C49C004FA3E3 /* MOIUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIUtils.h; sourceTree = "<group>"; };
+		693BE4E32844C49C004FA3E3 /* MOIUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIUtils.m; sourceTree = "<group>"; };
+		693BE4E62844C558004FA3E3 /* MOIKTPEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIKTPEnums.h; sourceTree = "<group>"; };
+		693BE4E72844C558004FA3E3 /* MOIKTPEnums.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIKTPEnums.m; sourceTree = "<group>"; };
+		693BE4EB2844C57C004FA3E3 /* asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = asset.xcassets; sourceTree = "<group>"; };
+		693BE4EE2844C597004FA3E3 /* MOIComparationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIComparationModel.h; sourceTree = "<group>"; };
+		693BE4EF2844C597004FA3E3 /* MOIComparationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIComparationModel.m; sourceTree = "<group>"; };
+		693BE4F22844C5A6004FA3E3 /* MOIKTPDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIKTPDataModel.h; sourceTree = "<group>"; };
+		693BE4F32844C5A6004FA3E3 /* MOIKTPDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIKTPDataModel.m; sourceTree = "<group>"; };
+		693BE4F62844C5BA004FA3E3 /* MNCOCRIdentifierResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNCOCRIdentifierResult.h; sourceTree = "<group>"; };
+		693BE4F72844C5BA004FA3E3 /* MNCOCRIdentifierResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNCOCRIdentifierResult.m; sourceTree = "<group>"; };
+		693BE4FA2844C5D5004FA3E3 /* MOIReligionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIReligionModel.h; sourceTree = "<group>"; };
+		693BE4FB2844C5D5004FA3E3 /* MOIReligionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIReligionModel.m; sourceTree = "<group>"; };
+		693BE4FE2844C5F3004FA3E3 /* MOIMarriageStatusModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIMarriageStatusModel.h; sourceTree = "<group>"; };
+		693BE4FF2844C5F3004FA3E3 /* MOIMarriageStatusModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIMarriageStatusModel.m; sourceTree = "<group>"; };
+		693BE5022844C605004FA3E3 /* MOICommonTextModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOICommonTextModel.h; sourceTree = "<group>"; };
+		693BE5032844C605004FA3E3 /* MOICommonTextModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOICommonTextModel.m; sourceTree = "<group>"; };
+		693BE5062844C615004FA3E3 /* MOINumberValidationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOINumberValidationModel.h; sourceTree = "<group>"; };
+		693BE5072844C616004FA3E3 /* MOINumberValidationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOINumberValidationModel.m; sourceTree = "<group>"; };
+		693BE50B2845B9A8004FA3E3 /* MOIICameraView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIICameraView.h; sourceTree = "<group>"; };
+		693BE50C2845B9A8004FA3E3 /* MOIICameraView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIICameraView.m; sourceTree = "<group>"; };
+		693BE50F2845B9B7004FA3E3 /* MOIIKTPFrameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIIKTPFrameView.h; sourceTree = "<group>"; };
+		693BE5102845B9B7004FA3E3 /* MOIIKTPFrameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIIKTPFrameView.m; sourceTree = "<group>"; };
+		693BE5132845B9C6004FA3E3 /* MOIIBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIIBottomView.h; sourceTree = "<group>"; };
+		693BE5142845B9C6004FA3E3 /* MOIIBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIIBottomView.m; sourceTree = "<group>"; };
+		E36121820995B7527C88B559 /* Pods-MNCOCRIdentifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MNCOCRIdentifier.debug.xcconfig"; path = "../../ML Kit/Pods/Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		693BE4B22844C1E1004FA3E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FBFCA97367BE825B9874D4 /* Pods_MNCOCRIdentifier.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		588FE1EDF0FA3B4C85545AE5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E36121820995B7527C88B559 /* Pods-MNCOCRIdentifier.debug.xcconfig */,
+				35491DB3E7B7FC6F19FFEDAE /* Pods-MNCOCRIdentifier.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		693BE4AB2844C1E1004FA3E3 = {
+			isa = PBXGroup;
+			children = (
+				693BE4B72844C1E1004FA3E3 /* MNCOCRIdentifier */,
+				693BE4B62844C1E1004FA3E3 /* Products */,
+				588FE1EDF0FA3B4C85545AE5 /* Pods */,
+				D51C8052D00272FFE1683D54 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		693BE4B62844C1E1004FA3E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4B52844C1E1004FA3E3 /* MNCOCRIdentifier.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		693BE4B72844C1E1004FA3E3 /* MNCOCRIdentifier */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4BF2844C296004FA3E3 /* CommonText.json */,
+				693BE4B82844C1E1004FA3E3 /* MNCOCRIdentifier.h */,
+				693BE4C12844C2B6004FA3E3 /* MNCOCRIdentifierClient.h */,
+				693BE4C22844C2B6004FA3E3 /* MNCOCRIdentifierClient.m */,
+				693BE4C52844C2BA004FA3E3 /* Controllers */,
+				693BE4DA2844C439004FA3E3 /* Delegates */,
+				693BE4DB2844C440004FA3E3 /* Helper */,
+				693BE4EA2844C56F004FA3E3 /* Images */,
+				693BE4ED2844C582004FA3E3 /* Models */,
+			);
+			path = MNCOCRIdentifier;
+			sourceTree = "<group>";
+		};
+		693BE4C52844C2BA004FA3E3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4C62844C2D4004FA3E3 /* SplashScreen */,
+				693BE4CB2844C3D9004FA3E3 /* Identifier */,
+				693BE4D02844C3FB004FA3E3 /* Correction */,
+				693BE4D52844C413004FA3E3 /* Verification */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		693BE4C62844C2D4004FA3E3 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4C72844C384004FA3E3 /* MOISplashScreenViewController.h */,
+				693BE4C82844C384004FA3E3 /* MOISplashScreenViewController.m */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		693BE4CB2844C3D9004FA3E3 /* Identifier */ = {
+			isa = PBXGroup;
+			children = (
+				693BE50A2845B985004FA3E3 /* UI */,
+				693BE4CC2844C3F0004FA3E3 /* MOIIdentifierViewController.h */,
+				693BE4CD2844C3F0004FA3E3 /* MOIIdentifierViewController.m */,
+			);
+			path = Identifier;
+			sourceTree = "<group>";
+		};
+		693BE4D02844C3FB004FA3E3 /* Correction */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4D12844C40E004FA3E3 /* MOICorrectionViewController.h */,
+				693BE4D22844C40E004FA3E3 /* MOICorrectionViewController.m */,
+			);
+			path = Correction;
+			sourceTree = "<group>";
+		};
+		693BE4D52844C413004FA3E3 /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4D62844C42E004FA3E3 /* MOIVerificationViewController.h */,
+				693BE4D72844C42E004FA3E3 /* MOIVerificationViewController.m */,
+			);
+			path = Verification;
+			sourceTree = "<group>";
+		};
+		693BE4DA2844C439004FA3E3 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4DC2844C455004FA3E3 /* MNCOCRIdentifierDelegate.h */,
+				693BE4DD2844C465004FA3E3 /* MOIDismissDelegate.h */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		693BE4DB2844C440004FA3E3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4DE2844C48D004FA3E3 /* MOIExtractKTPData.h */,
+				693BE4DF2844C48D004FA3E3 /* MOIExtractKTPData.m */,
+				693BE4E22844C49C004FA3E3 /* MOIUtils.h */,
+				693BE4E32844C49C004FA3E3 /* MOIUtils.m */,
+				693BE4E62844C558004FA3E3 /* MOIKTPEnums.h */,
+				693BE4E72844C558004FA3E3 /* MOIKTPEnums.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		693BE4EA2844C56F004FA3E3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4EB2844C57C004FA3E3 /* asset.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		693BE4ED2844C582004FA3E3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4EE2844C597004FA3E3 /* MOIComparationModel.h */,
+				693BE4EF2844C597004FA3E3 /* MOIComparationModel.m */,
+				693BE4F22844C5A6004FA3E3 /* MOIKTPDataModel.h */,
+				693BE4F32844C5A6004FA3E3 /* MOIKTPDataModel.m */,
+				693BE4F62844C5BA004FA3E3 /* MNCOCRIdentifierResult.h */,
+				693BE4F72844C5BA004FA3E3 /* MNCOCRIdentifierResult.m */,
+				693BE4FA2844C5D5004FA3E3 /* MOIReligionModel.h */,
+				693BE4FB2844C5D5004FA3E3 /* MOIReligionModel.m */,
+				693BE4FE2844C5F3004FA3E3 /* MOIMarriageStatusModel.h */,
+				693BE4FF2844C5F3004FA3E3 /* MOIMarriageStatusModel.m */,
+				693BE5022844C605004FA3E3 /* MOICommonTextModel.h */,
+				693BE5032844C605004FA3E3 /* MOICommonTextModel.m */,
+				693BE5062844C615004FA3E3 /* MOINumberValidationModel.h */,
+				693BE5072844C616004FA3E3 /* MOINumberValidationModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		693BE50A2845B985004FA3E3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				693BE50B2845B9A8004FA3E3 /* MOIICameraView.h */,
+				693BE50C2845B9A8004FA3E3 /* MOIICameraView.m */,
+				693BE50F2845B9B7004FA3E3 /* MOIIKTPFrameView.h */,
+				693BE5102845B9B7004FA3E3 /* MOIIKTPFrameView.m */,
+				693BE5132845B9C6004FA3E3 /* MOIIBottomView.h */,
+				693BE5142845B9C6004FA3E3 /* MOIIBottomView.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D51C8052D00272FFE1683D54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E23F4F687830F9C009F93BC /* Pods_MNCOCRIdentifier.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		693BE4B02844C1E1004FA3E3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				693BE5152845B9C6004FA3E3 /* MOIIBottomView.h in Headers */,
+				693BE4F82844C5BA004FA3E3 /* MNCOCRIdentifierResult.h in Headers */,
+				693BE51A2845C1FD004FA3E3 /* MNCOCRIdentifierDelegate.h in Headers */,
+				693BE4C32844C2B6004FA3E3 /* MNCOCRIdentifierClient.h in Headers */,
+				693BE4F42844C5A6004FA3E3 /* MOIKTPDataModel.h in Headers */,
+				693BE4C92844C384004FA3E3 /* MOISplashScreenViewController.h in Headers */,
+				693BE50D2845B9A8004FA3E3 /* MOIICameraView.h in Headers */,
+				693BE4D32844C40E004FA3E3 /* MOICorrectionViewController.h in Headers */,
+				693BE4E82844C558004FA3E3 /* MOIKTPEnums.h in Headers */,
+				693BE4CE2844C3F0004FA3E3 /* MOIIdentifierViewController.h in Headers */,
+				693BE4E02844C48D004FA3E3 /* MOIExtractKTPData.h in Headers */,
+				693BE4FC2844C5D5004FA3E3 /* MOIReligionModel.h in Headers */,
+				693BE4D82844C42E004FA3E3 /* MOIVerificationViewController.h in Headers */,
+				693BE5002844C5F3004FA3E3 /* MOIMarriageStatusModel.h in Headers */,
+				693BE4E42844C49C004FA3E3 /* MOIUtils.h in Headers */,
+				693BE5082844C616004FA3E3 /* MOINumberValidationModel.h in Headers */,
+				693BE5042844C605004FA3E3 /* MOICommonTextModel.h in Headers */,
+				693BE5112845B9B7004FA3E3 /* MOIIKTPFrameView.h in Headers */,
+				693BE4B92844C1E1004FA3E3 /* MNCOCRIdentifier.h in Headers */,
+				693BE4F02844C597004FA3E3 /* MOIComparationModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		693BE4B42844C1E1004FA3E3 /* MNCOCRIdentifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 693BE4BC2844C1E1004FA3E3 /* Build configuration list for PBXNativeTarget "MNCOCRIdentifier" */;
+			buildPhases = (
+				2577342A37B688BC600ECF93 /* [CP] Check Pods Manifest.lock */,
+				693BE4B02844C1E1004FA3E3 /* Headers */,
+				693BE4B12844C1E1004FA3E3 /* Sources */,
+				693BE4B22844C1E1004FA3E3 /* Frameworks */,
+				693BE4B32844C1E1004FA3E3 /* Resources */,
+				69C0F1FEBFFA14213F2FA375 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MNCOCRIdentifier;
+			productName = MNCOCRIdentifier;
+			productReference = 693BE4B52844C1E1004FA3E3 /* MNCOCRIdentifier.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		693BE4AC2844C1E1004FA3E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					693BE4B42844C1E1004FA3E3 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = 693BE4AF2844C1E1004FA3E3 /* Build configuration list for PBXProject "MNCOCRIdentifier" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 693BE4AB2844C1E1004FA3E3;
+			productRefGroup = 693BE4B62844C1E1004FA3E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				693BE4B42844C1E1004FA3E3 /* MNCOCRIdentifier */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		693BE4B32844C1E1004FA3E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				693BE4EC2844C57C004FA3E3 /* asset.xcassets in Resources */,
+				693BE4C02844C296004FA3E3 /* CommonText.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2577342A37B688BC600ECF93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MNCOCRIdentifier-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69C0F1FEBFFA14213F2FA375 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		693BE4B12844C1E1004FA3E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				693BE4D92844C42E004FA3E3 /* MOIVerificationViewController.m in Sources */,
+				693BE5162845B9C6004FA3E3 /* MOIIBottomView.m in Sources */,
+				693BE4E12844C48D004FA3E3 /* MOIExtractKTPData.m in Sources */,
+				693BE4D42844C40E004FA3E3 /* MOICorrectionViewController.m in Sources */,
+				693BE5122845B9B7004FA3E3 /* MOIIKTPFrameView.m in Sources */,
+				693BE5092844C616004FA3E3 /* MOINumberValidationModel.m in Sources */,
+				693BE4F92844C5BA004FA3E3 /* MNCOCRIdentifierResult.m in Sources */,
+				693BE4FD2844C5D5004FA3E3 /* MOIReligionModel.m in Sources */,
+				693BE4F52844C5A6004FA3E3 /* MOIKTPDataModel.m in Sources */,
+				693BE5012844C5F3004FA3E3 /* MOIMarriageStatusModel.m in Sources */,
+				693BE4CF2844C3F0004FA3E3 /* MOIIdentifierViewController.m in Sources */,
+				693BE4E92844C558004FA3E3 /* MOIKTPEnums.m in Sources */,
+				693BE5052844C605004FA3E3 /* MOICommonTextModel.m in Sources */,
+				693BE4C42844C2B6004FA3E3 /* MNCOCRIdentifierClient.m in Sources */,
+				693BE4E52844C49C004FA3E3 /* MOIUtils.m in Sources */,
+				693BE50E2845B9A8004FA3E3 /* MOIICameraView.m in Sources */,
+				693BE4F12844C597004FA3E3 /* MOIComparationModel.m in Sources */,
+				693BE4CA2844C384004FA3E3 /* MOISplashScreenViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		693BE4BA2844C1E1004FA3E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		693BE4BB2844C1E1004FA3E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		693BE4BD2844C1E1004FA3E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36121820995B7527C88B559 /* Pods-MNCOCRIdentifier.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6KMVK5CC4Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MNCIdentifier.MNCOCRIdentifier;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		693BE4BE2844C1E1004FA3E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35491DB3E7B7FC6F19FFEDAE /* Pods-MNCOCRIdentifier.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6KMVK5CC4Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MNCIdentifier.MNCOCRIdentifier;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		693BE4AF2844C1E1004FA3E3 /* Build configuration list for PBXProject "MNCOCRIdentifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				693BE4BA2844C1E1004FA3E3 /* Debug */,
+				693BE4BB2844C1E1004FA3E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		693BE4BC2844C1E1004FA3E3 /* Build configuration list for PBXNativeTarget "MNCOCRIdentifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				693BE4BD2844C1E1004FA3E3 /* Debug */,
+				693BE4BE2844C1E1004FA3E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 693BE4AC2844C1E1004FA3E3 /* Project object */;
+}
