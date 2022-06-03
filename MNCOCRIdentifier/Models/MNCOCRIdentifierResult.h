@@ -13,8 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNCOCRIdentifierResult : NSObject
 
-@property (nonatomic) NSString *ktpPath;
-@property (nonatomic) MOIKTPDataModel *ktpData;
+@property (nonatomic, nullable) NSString *errorMessage;
+@property (nonatomic, nullable) NSString *imagePath;
+@property (nonatomic) BOOL isSuccess;
+@property (nonatomic, nullable) MOIKTPDataModel *ktp;
+
+- (NSString *)asJson;
 
 @end
 

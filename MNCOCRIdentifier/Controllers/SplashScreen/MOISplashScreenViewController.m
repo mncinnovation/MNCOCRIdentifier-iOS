@@ -7,6 +7,7 @@
 
 #import "MOISplashScreenViewController.h"
 #import "MOIIdentifierViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface MOISplashScreenViewController () {
     NSBundle *bundle;
@@ -29,7 +30,7 @@
     
     [self setupView];
     
-    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(gotoIdentifier) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkPermissionVideo) userInfo:nil repeats:NO];
 }
 
 - (void)setupView {
@@ -84,15 +85,65 @@
     [footerStackView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
 }
 
-- (void)gotoIdentifier {
-    MOIIdentifierViewController *identifierController = [[MOIIdentifierViewController alloc] initWithNibName:nil bundle:bundle];
-    identifierController.modalPresentationStyle = UIModalPresentationFullScreen;
-    identifierController.resultDelegate = self.resultDelegate;
-    UIViewController *currentViewController = [self presentingViewController];
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        [currentViewController presentViewController:identifierController animated:YES completion:nil];
+- (void)checkPermissionVideo {
+    switch ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo]) {
+        case AVAuthorizationStatusNotDetermined:
+            [self requestCaptureDeviceVideoPermission];
+            break;
+        case AVAuthorizationStatusRestricted:
+            [self errorResult];
+            break;
+        case AVAuthorizationStatusDenied:
+            [self errorResult];
+            break;
+        case AVAuthorizationStatusAuthorized:
+            [self gotoIdentifier];
+            break;
+    }
+}
+
+- (void)requestCaptureDeviceVideoPermission {
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        if (granted) {
+            [self gotoIdentifier];
+        } else {
+            [self errorResult];
+        }
     }];
+}
+
+- (void)errorResult {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Camera permission not granted, please allow from your settings" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *closeButton = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            MNCOCRIdentifierResult *result = [MNCOCRIdentifierResult new];
+            result.isSuccess = NO;
+            result.errorMessage = @"Camera permission not granted";
+            result.imagePath = nil;
+            result.ktp = nil;
+            
+            [self.resultDelegate ocrResult:result];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [alert addAction:closeButton];
+         
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    });
+}
+
+- (void)gotoIdentifier {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MOIIdentifierViewController *identifierController = [[MOIIdentifierViewController alloc] initWithNibName:nil bundle:self->bundle];
+        identifierController.modalPresentationStyle = UIModalPresentationFullScreen;
+        identifierController.resultDelegate = self.resultDelegate;
+        UIViewController *currentViewController = [self presentingViewController];
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            [currentViewController presentViewController:identifierController animated:YES completion:nil];
+        }];
+    });
 }
 
 @end

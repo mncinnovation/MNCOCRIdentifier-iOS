@@ -252,8 +252,10 @@
     [UIImageJPEGRepresentation(self.ktpImage, 1) writeToFile:filePath atomically:YES];
     
     MNCOCRIdentifierResult *result = [MNCOCRIdentifierResult new];
-    result.ktpPath = filePath;
-    result.ktpData = self.ktpData;
+    result.isSuccess = YES;
+    result.errorMessage = @"Success";
+    result.imagePath = filePath;
+    result.ktp = self.ktpData;
     
     [self.resultDelegate ocrResult:result];
     [self.dissmissDelegate dismiss];

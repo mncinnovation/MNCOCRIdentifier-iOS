@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *kewarganegaraan;
 @property (nonatomic) NSString *berlakuHingga;
 
+- (NSDictionary *)dictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END
