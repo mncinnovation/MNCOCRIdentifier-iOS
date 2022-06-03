@@ -339,6 +339,14 @@
     return [[string stringByReplacingOccurrencesOfString:clean withString:@""] stringByReplacingOccurrencesOfString:@":" withString:@""];
 }
 
+- (BOOL)isContainsNumber:(NSString *)string {
+    if ([string rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]].location != NSNotFound) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 - (NSString *)filterNumberOnly:(NSString *)string {
     NSString *result = @"";
     NSMutableArray *arrayCharacter = [NSMutableArray new];
@@ -384,6 +392,10 @@
 
 - (NSString *)filterReligions:(NSString *)string {
     NSString *lowerLineText = [string lowercaseString];
+    
+    if ([self isContainsNumber:lowerLineText]) {
+        return @"";
+    }
     
     MOIReligionModel *religionModel = [self getCommonTextObject].religionModel;
     
@@ -434,6 +446,10 @@
 
 - (NSString *)filterMarriageStatus:(NSString *)string {
     NSString *lowerLineText = [string lowercaseString];
+    
+    if ([self isContainsNumber:lowerLineText]) {
+        return @"";
+    }
     
     MOIMarriageStatusModel *marriageStatusModel = [self getCommonTextObject].marriageStatusModel;
     
