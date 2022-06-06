@@ -117,7 +117,7 @@
     for (MLKTextBlock *textBlock in textBlocks) {
         for (MLKTextLine *line in textBlock.lines) {
             NSString *lineText = line.text;
-            NSString *lowerLineText = [lineText lowercaseString];
+            NSString *lowerLineText = [[lineText lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             
             if ([lowerLineText containsString:@"provinsi"]) {
                 ktpData.provinsi = [self cleanseString:lineText clean:@"PROVINSI"];

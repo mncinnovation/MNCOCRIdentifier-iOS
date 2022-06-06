@@ -433,6 +433,7 @@ NSDate *temporaryBirthDate;
 
 - (void)nextTapped {
     if ([self isCompleteData]) {
+        [self.ktpData trimAllWhiteSpace];
         MOIVerificationViewController *verificationController = [[MOIVerificationViewController alloc] initWithNibName:nil bundle:bundle];
         verificationController.modalPresentationStyle = UIModalPresentationFullScreen;
         verificationController.ktpData = self.ktpData;

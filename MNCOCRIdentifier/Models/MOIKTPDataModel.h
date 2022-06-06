@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *berlakuHingga;
 
 - (NSDictionary *)dictionary;
+- (void)trimAllWhiteSpace;
 
 @end
 

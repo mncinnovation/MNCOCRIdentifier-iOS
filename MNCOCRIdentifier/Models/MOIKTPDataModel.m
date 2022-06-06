@@ -17,4 +17,25 @@
     }
 }
 
+- (void)trimAllWhiteSpace {
+    self.provinsi = [self.provinsi stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.kabkota = [self.kabkota stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.NIK = [self.NIK stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.nama = [self.nama stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.tempatLahir = [self.tempatLahir stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.tanggalLahir = [self.tanggalLahir stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.jenisKelamin = [self.jenisKelamin stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.golDarah = [self.golDarah stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.alamat = [self.alamat stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.rt = [self.rt stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.rw = [self.rw stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.kelurahan = [self.kelurahan stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.kecamatan = [self.kecamatan stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.agama = [self.agama stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.statusPerkawinan = [self.statusPerkawinan stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.pekerjaan = [self.pekerjaan stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.kewarganegaraan = [self.kewarganegaraan stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.berlakuHingga = [self.berlakuHingga stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
 @end
