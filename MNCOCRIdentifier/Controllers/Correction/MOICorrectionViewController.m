@@ -318,6 +318,7 @@ NSDate *temporaryBirthDate;
     textField.font = [UIFont systemFontOfSize:14];
     textField.delegate = self;
     textField.returnKeyType = UIReturnKeyNext;
+    textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     
     UIImage *pencilImage = [UIImage imageNamed:@"ic_pencil" inBundle:bundle compatibleWithTraitCollection:nil];
     UIImageView *pencilImageView = [UIImageView new];
@@ -424,6 +425,17 @@ NSDate *temporaryBirthDate;
     if ([textField isEqual:self.kewarganegaraanTextField]) {
         [self.berlakuHinggaTextField becomeFirstResponder];
     }
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSRange lowercaseCharRange = [string rangeOfCharacterFromSet:[NSCharacterSet lowercaseLetterCharacterSet]];
+    
+    if (lowercaseCharRange.location != NSNotFound) {
+        textField.text = [textField.text stringByReplacingCharactersInRange:range withString:[string uppercaseString]];
+        return NO;
+    }
+    
     return YES;
 }
 
