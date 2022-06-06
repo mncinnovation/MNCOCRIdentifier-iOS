@@ -520,7 +520,7 @@
 }
 
 - (MOICommonTextModel *)getCommonTextObject {
-    NSString *path = [[NSBundle bundleWithIdentifier:@"MNCIdentifier.OCR"] pathForResource:@"CommonText" ofType:@"json"];
+    NSString *path = [[NSBundle bundleWithIdentifier:@"MNCIdentifier.MNCOCRIdentifier"] pathForResource:@"CommonText" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
