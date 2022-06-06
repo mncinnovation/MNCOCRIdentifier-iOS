@@ -140,6 +140,31 @@ static const CGFloat percentageToPass = 80;
     [flashButton.leftAnchor constraintEqualToAnchor:flashView.leftAnchor].active = YES;
     [flashButton.rightAnchor constraintEqualToAnchor:flashView.rightAnchor].active = YES;
     
+    UIStackView *backStackView = [[UIStackView alloc] init];
+    backStackView.axis = UILayoutConstraintAxisHorizontal;
+    backStackView.distribution = UIStackViewDistributionFill;
+    backStackView.alignment = UIStackViewAlignmentCenter;
+    backStackView.spacing = 16;
+    backStackView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    UIImage *backImage = [UIImage imageNamed:@"ic_arrow_back" inBundle:bundle compatibleWithTraitCollection:nil];
+    UIImageView *backImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
+    backImageView.image = backImage;
+    
+    UIButton *backLabel = [[UIButton alloc] init];
+    backLabel.titleLabel.font = [UIFont systemFontOfSize:16];
+    [backLabel setTitle:@"Kembali" forState:UIControlStateNormal];
+    [backLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [backLabel addTarget:self action:@selector(backTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    [backStackView addArrangedSubview:backImageView];
+    [backStackView addArrangedSubview:backLabel];
+    [backStackView addArrangedSubview:[UIView new]];
+    
+    [self.view addSubview:backStackView];
+    [backStackView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:28].active = YES;
+    [backStackView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:33].active = YES;
+    
     self.bottomView = [MOIIBottomView new];
     self.bottomView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.bottomView];
@@ -344,6 +369,17 @@ static const CGFloat percentageToPass = 80;
     lastImage = [UIImage imageWithCGImage:[convertImage CGImage] scale:[convertImage scale] orientation:orientation];
     
     [self detectIdentification:visionImage width:imageWidth height:imageHeight];
+}
+
+- (void)backTapped {
+    MNCOCRIdentifierResult *result = [MNCOCRIdentifierResult new];
+    result.isSuccess = NO;
+    result.errorMessage = @"Canceled by user";
+    result.imagePath = nil;
+    result.ktp = nil;
+    
+    [self.resultDelegate ocrResult:result];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
