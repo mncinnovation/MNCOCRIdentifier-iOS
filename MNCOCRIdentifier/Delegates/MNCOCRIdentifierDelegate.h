@@ -11,7 +11,7 @@
 
 @protocol MNCOCRIdentifierDelegate <NSObject>
 
-- (void)ocrResult:(MNCOCRIdentifierResult *)result; 
+- (void)ocrResult:(nullable MNCOCRIdentifierResult *)result; 
 
 @end
 
