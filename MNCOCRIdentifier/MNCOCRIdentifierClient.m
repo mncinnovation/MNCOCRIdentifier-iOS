@@ -7,6 +7,7 @@
 
 #import "MNCOCRIdentifierClient.h"
 #import "MOISplashScreenViewController.h"
+#import "MOIUserDefault.h"
 
 @interface MNCOCRIdentifierClient ()
 
@@ -33,7 +34,17 @@
     return self.splashScreenController.resultDelegate;
 }
 
+//- (void)setIsFlashEnable:(BOOL)isFlashEnable {
+//    [MOIUserDefault setFlashEnable:isFlashEnable];
+//}
+//
+//- (BOOL)isFlashEnable {
+//    return [MOIUserDefault isFlashEnable];
+//}
+
 - (void)showOCRIdentifier:(UIViewController *)parent {
+    [MOIUserDefault setFlashEnable:self.isFlashEnable];
+    
     self.splashScreenController.modalPresentationStyle = UIModalPresentationFullScreen;
     [parent presentViewController:self.splashScreenController animated:YES completion:nil];
 }

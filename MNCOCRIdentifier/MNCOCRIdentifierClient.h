@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MNCOCRIdentifierClient : NSObject
 
-@property(nonatomic, weak) id <MNCOCRIdentifierDelegate> delegate;
+@property (nonatomic, weak) id <MNCOCRIdentifierDelegate> delegate;
+@property (nonatomic) BOOL isFlashEnable;
 
 - (void)showOCRIdentifier:(UIViewController *)parent;
 

@@ -14,6 +14,7 @@
 #import "MOIICameraView.h"
 #import "MOIIKTPFrameView.h"
 #import "MOIIBottomView.h"
+#import "MOIUserDefault.h"
 
 @import MLImage;
 @import MLKitObjectDetectionCommon;
@@ -112,6 +113,7 @@ static const CGFloat percentageToPass = 80;
     
     UIView *flashView = [UIView new];
     flashView.backgroundColor = [UIColor whiteColor];
+    flashView.hidden = ![MOIUserDefault isFlashEnable];
     flashView.layer.cornerRadius = 24;
     flashView.layer.masksToBounds = YES;
     flashView.translatesAutoresizingMaskIntoConstraints = NO;

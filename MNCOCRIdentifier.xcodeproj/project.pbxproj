@@ -47,6 +47,8 @@
 		693BE5152845B9C6004FA3E3 /* MOIIBottomView.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE5132845B9C6004FA3E3 /* MOIIBottomView.h */; };
 		693BE5162845B9C6004FA3E3 /* MOIIBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE5142845B9C6004FA3E3 /* MOIIBottomView.m */; };
 		693BE51A2845C1FD004FA3E3 /* MNCOCRIdentifierDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4DC2844C455004FA3E3 /* MNCOCRIdentifierDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		696F3910284F0BE400F60C69 /* MOIUserDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = 696F390E284F0BE400F60C69 /* MOIUserDefault.h */; };
+		696F3911284F0BE400F60C69 /* MOIUserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F390F284F0BE400F60C69 /* MOIUserDefault.m */; };
 		C8FBFCA97367BE825B9874D4 /* Pods_MNCOCRIdentifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E23F4F687830F9C009F93BC /* Pods_MNCOCRIdentifier.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,8 @@
 		693BE5102845B9B7004FA3E3 /* MOIIKTPFrameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIIKTPFrameView.m; sourceTree = "<group>"; };
 		693BE5132845B9C6004FA3E3 /* MOIIBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIIBottomView.h; sourceTree = "<group>"; };
 		693BE5142845B9C6004FA3E3 /* MOIIBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIIBottomView.m; sourceTree = "<group>"; };
+		696F390E284F0BE400F60C69 /* MOIUserDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIUserDefault.h; sourceTree = "<group>"; };
+		696F390F284F0BE400F60C69 /* MOIUserDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIUserDefault.m; sourceTree = "<group>"; };
 		E36121820995B7527C88B559 /* Pods-MNCOCRIdentifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MNCOCRIdentifier.debug.xcconfig"; path = "../../ML Kit/Pods/Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +223,8 @@
 				693BE4E32844C49C004FA3E3 /* MOIUtils.m */,
 				693BE4E62844C558004FA3E3 /* MOIKTPEnums.h */,
 				693BE4E72844C558004FA3E3 /* MOIKTPEnums.m */,
+				696F390E284F0BE400F60C69 /* MOIUserDefault.h */,
+				696F390F284F0BE400F60C69 /* MOIUserDefault.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				693BE4E02844C48D004FA3E3 /* MOIExtractKTPData.h in Headers */,
 				693BE4FC2844C5D5004FA3E3 /* MOIReligionModel.h in Headers */,
 				693BE4D82844C42E004FA3E3 /* MOIVerificationViewController.h in Headers */,
+				696F3910284F0BE400F60C69 /* MOIUserDefault.h in Headers */,
 				693BE5002844C5F3004FA3E3 /* MOIMarriageStatusModel.h in Headers */,
 				693BE4E42844C49C004FA3E3 /* MOIUtils.h in Headers */,
 				693BE5082844C616004FA3E3 /* MOINumberValidationModel.h in Headers */,
@@ -422,6 +429,7 @@
 				693BE4E12844C48D004FA3E3 /* MOIExtractKTPData.m in Sources */,
 				693BE4D42844C40E004FA3E3 /* MOICorrectionViewController.m in Sources */,
 				693BE5122845B9B7004FA3E3 /* MOIIKTPFrameView.m in Sources */,
+				696F3911284F0BE400F60C69 /* MOIUserDefault.m in Sources */,
 				693BE5092844C616004FA3E3 /* MOINumberValidationModel.m in Sources */,
 				693BE4F92844C5BA004FA3E3 /* MNCOCRIdentifierResult.m in Sources */,
 				693BE4FD2844C5D5004FA3E3 /* MOIReligionModel.m in Sources */,
