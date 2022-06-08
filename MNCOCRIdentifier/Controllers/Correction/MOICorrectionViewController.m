@@ -8,30 +8,31 @@
 #import "MOICorrectionViewController.h"
 #import "MOIVerificationViewController.h"
 #import "MOIKTPEnums.h"
+#import "MOITextFieldView.h"
 
-@interface MOICorrectionViewController () <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MOIDismissDelegate> {
+@interface MOICorrectionViewController () <UIPickerViewDelegate, UIPickerViewDataSource, MOIDismissDelegate, MOITextFieldDelegate> {
     NSBundle *bundle;
 }
 
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) UITextField *provinsiTextField;
-@property (strong, nonatomic) UITextField *kabKotaTextField;
-@property (strong, nonatomic) UITextField *nikTextField;
-@property (strong, nonatomic) UITextField *namaTextField;
-@property (strong, nonatomic) UITextField *tempatLahirTextField;
-@property (strong, nonatomic) UITextField *tanggalLahirTextField;
-@property (strong, nonatomic) UITextField *jenisKelaminTextField;
-@property (strong, nonatomic) UITextField *goldarTextField;
-@property (strong, nonatomic) UITextField *alamatTextField;
-@property (strong, nonatomic) UITextField *rtTextField;
-@property (strong, nonatomic) UITextField *rwTextField;
-@property (strong, nonatomic) UITextField *kelurahanTextField;
-@property (strong, nonatomic) UITextField *kecamatanTextField;
-@property (strong, nonatomic) UITextField *agamaTextField;
-@property (strong, nonatomic) UITextField *statusPerkawinanTextField;
-@property (strong, nonatomic) UITextField *pekerjaanTextField;
-@property (strong, nonatomic) UITextField *kewarganegaraanTextField;
-@property (strong, nonatomic) UITextField *berlakuHinggaTextField;
+@property (strong, nonatomic) MOITextFieldView *provinsiTextField;
+@property (strong, nonatomic) MOITextFieldView *kabKotaTextField;
+@property (strong, nonatomic) MOITextFieldView *nikTextField;
+@property (strong, nonatomic) MOITextFieldView *namaTextField;
+@property (strong, nonatomic) MOITextFieldView *tempatLahirTextField;
+@property (strong, nonatomic) MOITextFieldView *tanggalLahirTextField;
+@property (strong, nonatomic) MOITextFieldView *jenisKelaminTextField;
+@property (strong, nonatomic) MOITextFieldView *goldarTextField;
+@property (strong, nonatomic) MOITextFieldView *alamatTextField;
+@property (strong, nonatomic) MOITextFieldView *rtTextField;
+@property (strong, nonatomic) MOITextFieldView *rwTextField;
+@property (strong, nonatomic) MOITextFieldView *kelurahanTextField;
+@property (strong, nonatomic) MOITextFieldView *kecamatanTextField;
+@property (strong, nonatomic) MOITextFieldView *agamaTextField;
+@property (strong, nonatomic) MOITextFieldView *statusPerkawinanTextField;
+@property (strong, nonatomic) MOITextFieldView *pekerjaanTextField;
+@property (strong, nonatomic) MOITextFieldView *kewarganegaraanTextField;
+@property (strong, nonatomic) MOITextFieldView *berlakuHinggaTextField;
 @property (strong, nonatomic) UIPickerView *goldarPicker;
 @property (strong, nonatomic) UIPickerView *jenisKelaminPicker;
 @property (strong, nonatomic) UIPickerView *statusPerkawinanPicker;
@@ -157,47 +158,100 @@ NSDate *temporaryBirthDate;
     [contentStackView addArrangedSubview:firstSeparator];
     [firstSeparator.heightAnchor constraintEqualToConstant:1].active = YES;
     
-    self.provinsiTextField = [UITextField new];
-    self.kabKotaTextField = [UITextField new];
-    self.nikTextField = [UITextField new];
-    self.namaTextField = [UITextField new];
-    self.tempatLahirTextField = [UITextField new];
-    self.tanggalLahirTextField = [UITextField new];
-    self.jenisKelaminTextField = [UITextField new];
-    self.goldarTextField = [UITextField new];
-    self.alamatTextField = [UITextField new];
-    self.rtTextField = [UITextField new];
-    self.rwTextField = [UITextField new];
-    self.kelurahanTextField = [UITextField new];
-    self.kecamatanTextField = [UITextField new];
-    self.agamaTextField = [UITextField new];
-    self.statusPerkawinanTextField = [UITextField new];
-    self.pekerjaanTextField = [UITextField new];
-    self.kewarganegaraanTextField = [UITextField new];
-    self.berlakuHinggaTextField = [UITextField new];
+    self.provinsiTextField = [MOITextFieldView new];
+    self.provinsiTextField.title = @"Provinsi";
+    self.provinsiTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.provinsiTextField];
+    
+    self.kabKotaTextField = [MOITextFieldView new];
+    self.kabKotaTextField.title = @"Provinsi";
+    self.kabKotaTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.kabKotaTextField];
+    
+    self.nikTextField = [MOITextFieldView new];
+    self.nikTextField.title = @"NIK";
+    self.nikTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.nikTextField];
+    
+    self.namaTextField = [MOITextFieldView new];
+    self.namaTextField.title = @"Nama Lengkap";
+    self.namaTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.namaTextField];
+    
+    self.tempatLahirTextField = [MOITextFieldView new];
+    self.tempatLahirTextField.title = @"Tempat Lahir";
+    self.tempatLahirTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.tempatLahirTextField];
+    
+    
+    self.tanggalLahirTextField = [MOITextFieldView new];
+    self.tanggalLahirTextField.title = @"Tanggal Lahir";
+    self.tanggalLahirTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.tanggalLahirTextField];
+    
+    self.jenisKelaminTextField = [MOITextFieldView new];
+    self.jenisKelaminTextField.title = @"Jenis Kelamin";
+    self.jenisKelaminTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.jenisKelaminTextField];
+    
+    self.goldarTextField = [MOITextFieldView new];
+    self.goldarTextField.title = @"Golongan Darah";
+    self.goldarTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.goldarTextField];
+    
+    self.alamatTextField = [MOITextFieldView new];
+    self.alamatTextField.title = @"Alamat";
+    self.alamatTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.alamatTextField];
+    
+    self.rtTextField = [MOITextFieldView new];
+    self.rtTextField.title = @"RT";
+    self.rtTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.rtTextField];
+    
+    self.rwTextField = [MOITextFieldView new];
+    self.rwTextField.title = @"RW";
+    self.rwTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.rwTextField];
+    
+    self.kelurahanTextField = [MOITextFieldView new];
+    self.kelurahanTextField.title = @"Kelurahan/Desa";
+    self.kelurahanTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.kelurahanTextField];
+    
+    self.kecamatanTextField = [MOITextFieldView new];
+    self.kecamatanTextField.title = @"Kecamatan";
+    self.kecamatanTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.kecamatanTextField];
+    
+    self.agamaTextField = [MOITextFieldView new];
+    self.agamaTextField.title = @"Agama";
+    self.agamaTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.agamaTextField];
+    
+    self.statusPerkawinanTextField = [MOITextFieldView new];
+    self.statusPerkawinanTextField.title = @"Status Perkawinan";
+    self.statusPerkawinanTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.statusPerkawinanTextField];
+    
+    self.pekerjaanTextField = [MOITextFieldView new];
+    self.pekerjaanTextField.title = @"Pekerjaan";
+    self.pekerjaanTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.pekerjaanTextField];
+    
+    self.kewarganegaraanTextField = [MOITextFieldView new];
+    self.kewarganegaraanTextField.title = @"Kewarganegaraan";
+    self.kewarganegaraanTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.kewarganegaraanTextField];
+    
+    self.berlakuHinggaTextField = [MOITextFieldView new];
+    self.berlakuHinggaTextField.title = @"Berlaku Hingga";
+    self.berlakuHinggaTextField.delegate = self;
+    [contentStackView addArrangedSubview:self.berlakuHinggaTextField];
     
     self.nikTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.rtTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.rwTextField.keyboardType = UIKeyboardTypeNumberPad;
-    
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Provinsi" textField:self.provinsiTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Kabupaten/Kota" textField:self.kabKotaTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"NIK" textField:self.nikTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Nama Lengkap" textField:self.namaTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Tempat Lahir" textField:self.tempatLahirTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Tanggal Lahir" textField:self.tanggalLahirTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Jenis Kelamin" textField:self.jenisKelaminTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Golongan Darah" textField:self.goldarTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Alamat" textField:self.alamatTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"RT" textField:self.rtTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"RW" textField:self.rwTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Kelurahan/Desa" textField:self.kelurahanTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Kecamatan" textField:self.kecamatanTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Agama" textField:self.agamaTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Status Perkawinan" textField:self.statusPerkawinanTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Pekerjaan" textField:self.pekerjaanTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Kewarganegaraan" textField:self.kewarganegaraanTextField]];
-    [contentStackView addArrangedSubview:[self addViewForTextField:@"Berlaku Hingga" textField:self.berlakuHinggaTextField]];
     
     UIView *secondSeparator = [UIView new];
     secondSeparator.translatesAutoresizingMaskIntoConstraints = NO;
@@ -270,70 +324,29 @@ NSDate *temporaryBirthDate;
 }
 
 - (void)finishPickJenisKelamin {
-    [self.jenisKelaminTextField resignFirstResponder];
+    [self.jenisKelaminTextField dismissFocus];
     self.ktpData.jenisKelamin = temporaryGender;
     self.jenisKelaminTextField.text = temporaryGender;
 }
 
 - (void)finishPickGolonganDarah {
-    [self.goldarTextField resignFirstResponder];
+    [self.goldarTextField dismissFocus];
     self.ktpData.golDarah = temporaryBlood;
     self.goldarTextField.text = temporaryBlood;
 }
 
 - (void)finishPickStatusPerkawinan {
-    [self.statusPerkawinanTextField resignFirstResponder];
+    [self.statusPerkawinanTextField dismissFocus];
     self.ktpData.statusPerkawinan = temporaryMarriage;
     self.statusPerkawinanTextField.text = temporaryMarriage;
 }
 
 - (void)finishPickTanggalLahir {
-    [self.tanggalLahirTextField resignFirstResponder];
+    [self.tanggalLahirTextField dismissFocus];
     NSDateFormatter *dateFormat = [NSDateFormatter new];
     [dateFormat setDateFormat:@"dd-MM-yyyy"];
     NSString *finalDate = [dateFormat stringFromDate:temporaryBirthDate];
     self.tanggalLahirTextField.text = finalDate;
-}
-
-- (UIStackView *)addViewForTextField:(NSString *)title textField:(UITextField *)textField {
-    UIStackView *stackView = [UIStackView new];
-    stackView.axis = UILayoutConstraintAxisVertical;
-    stackView.distribution = UIStackViewDistributionFill;
-    stackView.alignment = UIStackViewAlignmentFill;
-    stackView.spacing = 8;
-    
-    UILabel *titleLabel = [UILabel new];
-    titleLabel.text = title;
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
-    [stackView addArrangedSubview:titleLabel];
-    
-    UIStackView *textFieldStackView = [UIStackView new];
-    textFieldStackView.backgroundColor = [UIColor whiteColor];
-    textFieldStackView.layoutMarginsRelativeArrangement = YES;
-    textFieldStackView.layer.cornerRadius = 4;
-    textFieldStackView.layer.masksToBounds = YES;
-    textFieldStackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(12, 16, 12, 16);
-    
-    textField.font = [UIFont systemFontOfSize:14];
-    textField.delegate = self;
-    textField.returnKeyType = UIReturnKeyNext;
-    textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-    
-    UIImage *pencilImage = [UIImage imageNamed:@"ic_pencil" inBundle:bundle compatibleWithTraitCollection:nil];
-    UIImageView *pencilImageView = [UIImageView new];
-    pencilImageView.image = pencilImage;
-    pencilImageView.contentMode = UIViewContentModeScaleAspectFit;
-    pencilImageView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [textFieldStackView addArrangedSubview:textField];
-    [textFieldStackView addArrangedSubview:pencilImageView];
-    [pencilImageView.heightAnchor constraintEqualToConstant:18].active = YES;
-    [pencilImageView.widthAnchor constraintEqualToConstant:18].active = YES;
-    
-    [stackView addArrangedSubview:textFieldStackView];
-    
-    return stackView;
 }
 
 - (void)setupData {
@@ -356,76 +369,75 @@ NSDate *temporaryBirthDate;
     self.berlakuHinggaTextField.text = self.ktpData.berlakuHingga;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    if ([textField isEqual:self.provinsiTextField]) {
-        [self.kabKotaTextField becomeFirstResponder];
+- (void)textFieldReturn:(MOITextFieldView *)textFieldView {
+    [textFieldView dismissFocus];
+    if ([textFieldView isEqual:self.provinsiTextField]) {
+        [self.kabKotaTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.kabKotaTextField]) {
-        [self.nikTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.kabKotaTextField]) {
+        [self.nikTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.nikTextField]) {
-        [self.namaTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.nikTextField]) {
+        [self.namaTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.namaTextField]) {
-        [self.tempatLahirTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.namaTextField]) {
+        [self.tempatLahirTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.tempatLahirTextField]) {
-        [self.tanggalLahirTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.tempatLahirTextField]) {
+        [self.tanggalLahirTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.tanggalLahirTextField]) {
-        [self.jenisKelaminTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.tanggalLahirTextField]) {
+        [self.jenisKelaminTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.jenisKelaminTextField]) {
-        [self.goldarTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.jenisKelaminTextField]) {
+        [self.goldarTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.goldarTextField]) {
-        [self.alamatTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.goldarTextField]) {
+        [self.alamatTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.alamatTextField]) {
-        [self.rtTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.alamatTextField]) {
+        [self.rtTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.rtTextField]) {
-        [self.rwTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.rtTextField]) {
+        [self.rwTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.rwTextField]) {
-        [self.kelurahanTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.rwTextField]) {
+        [self.kelurahanTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.kelurahanTextField]) {
-        [self.kecamatanTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.kelurahanTextField]) {
+        [self.kecamatanTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.kecamatanTextField]) {
-        [self.agamaTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.kecamatanTextField]) {
+        [self.agamaTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.agamaTextField]) {
-        [self.statusPerkawinanTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.agamaTextField]) {
+        [self.statusPerkawinanTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.statusPerkawinanTextField]) {
-        [self.pekerjaanTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.statusPerkawinanTextField]) {
+        [self.pekerjaanTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.pekerjaanTextField]) {
-        [self.kewarganegaraanTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.pekerjaanTextField]) {
+        [self.kewarganegaraanTextField setAsFocus];
     }
     
-    if ([textField isEqual:self.kewarganegaraanTextField]) {
-        [self.berlakuHinggaTextField becomeFirstResponder];
+    if ([textFieldView isEqual:self.kewarganegaraanTextField]) {
+        [self.berlakuHinggaTextField setAsFocus];
     }
-    return YES;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -467,6 +479,27 @@ NSDate *temporaryBirthDate;
 
 - (BOOL)isCompleteData {
     BOOL result = YES;
+    MOITextFieldView *errorTextField = nil;
+    
+    [self.provinsiTextField setError:nil];
+    [self.kabKotaTextField setError:nil];
+    [self.nikTextField setError:nil];
+    [self.namaTextField setError:nil];
+    [self.tempatLahirTextField setError:nil];
+    [self.tanggalLahirTextField setError:nil];
+    [self.jenisKelaminTextField setError:nil];
+    [self.goldarTextField setError:nil];
+    [self.alamatTextField setError:nil];
+    [self.rtTextField setError:nil];
+    [self.rwTextField setError:nil];
+    [self.kelurahanTextField setError:nil];
+    [self.kecamatanTextField setError:nil];
+    [self.agamaTextField setError:nil];
+    [self.statusPerkawinanTextField setError:nil];
+    [self.pekerjaanTextField setError:nil];
+    [self.kewarganegaraanTextField setError:nil];
+    [self.berlakuHinggaTextField setError:nil];
+    
     self.ktpData = [MOIKTPDataModel new];
     self.ktpData.provinsi = self.provinsiTextField.text;
     self.ktpData.kabkota = self.kabKotaTextField.text;
@@ -489,74 +522,150 @@ NSDate *temporaryBirthDate;
     
     if (self.ktpData.provinsi == nil || [self.ktpData.provinsi  isEqual: @""]) {
         result = NO;
+        [self.provinsiTextField setError:@"Provinsi tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.provinsiTextField;
+        }
     }
     
     if (self.ktpData.kabkota == nil || [self.ktpData.kabkota  isEqual: @""]) {
         result = NO;
+        [self.kabKotaTextField setError:@"Kabupaten/Kota tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.kabKotaTextField;
+        }
     }
     
     if (self.ktpData.NIK == nil || [self.ktpData.NIK  isEqual: @""]) {
         result = NO;
+        [self.nikTextField setError:@"NIK tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.nikTextField;
+        }
     }
     
     if (self.ktpData.nama == nil || [self.ktpData.nama  isEqual: @""]) {
         result = NO;
+        [self.namaTextField setError:@"Nama tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.namaTextField;
+        }
     }
     
     if (self.ktpData.tempatLahir == nil || [self.ktpData.tempatLahir  isEqual: @""]) {
         result = NO;
+        [self.tempatLahirTextField setError:@"Tempat lahir tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.tempatLahirTextField;
+        }
     }
     
     if (self.ktpData.tanggalLahir == nil || [self.ktpData.tanggalLahir  isEqual: @""]) {
         result = NO;
+        [self.tanggalLahirTextField setError:@"Tanggal lahir tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.tanggalLahirTextField;
+        }
     }
     
     if (self.ktpData.jenisKelamin == nil || [self.ktpData.jenisKelamin  isEqual: @""]) {
         result = NO;
+        [self.jenisKelaminTextField setError:@"Jenis kelamin tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.jenisKelaminTextField;
+        }
     }
     
     if (self.ktpData.golDarah == nil || [self.ktpData.golDarah  isEqual: @""]) {
         result = NO;
+        [self.goldarTextField setError:@"Golongan darah tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.goldarTextField;
+        }
     }
     
     if (self.ktpData.alamat == nil || [self.ktpData.alamat  isEqual: @""]) {
         result = NO;
+        [self.alamatTextField setError:@"Alamat tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.alamatTextField;
+        }
     }
     
     if (self.ktpData.rt == nil || [self.ktpData.rt  isEqual: @""]) {
         result = NO;
+        [self.rtTextField setError:@"RT tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.rtTextField;
+        }
     }
     
     if (self.ktpData.rw == nil || [self.ktpData.rw  isEqual: @""]) {
         result = NO;
+        [self.rwTextField setError:@"RW tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.rwTextField;
+        }
     }
     
     if (self.ktpData.kelurahan == nil || [self.ktpData.kelurahan  isEqual: @""]) {
         result = NO;
+        [self.kelurahanTextField setError:@"Kelurahan tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.kelurahanTextField;
+        }
     }
     
     if (self.ktpData.kecamatan == nil || [self.ktpData.kecamatan  isEqual: @""]) {
         result = NO;
+        [self.kecamatanTextField setError:@"Kecamatan tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.kecamatanTextField;
+        }
     }
     
     if (self.ktpData.agama == nil || [self.ktpData.agama  isEqual: @""]) {
         result = NO;
+        [self.agamaTextField setError:@"Agama tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.agamaTextField;
+        }
     }
     
     if (self.ktpData.statusPerkawinan == nil || [self.ktpData.statusPerkawinan  isEqual: @""]) {
         result = NO;
+        [self.statusPerkawinanTextField setError:@"Status perkawinan tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.statusPerkawinanTextField;
+        }
     }
     
     if (self.ktpData.pekerjaan == nil || [self.ktpData.pekerjaan  isEqual: @""]) {
         result = NO;
+        [self.pekerjaanTextField setError:@"Pekerjaan tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.pekerjaanTextField;
+        }
     }
     
     if (self.ktpData.kewarganegaraan == nil || [self.ktpData.kewarganegaraan isEqual:@""]) {
         result = NO;
+        [self.kewarganegaraanTextField setError:@"Kewarganegaraan tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.kewarganegaraanTextField;
+        }
     }
     
     if (self.ktpData.berlakuHingga == nil || [self.ktpData.berlakuHingga  isEqual: @""]) {
         result = NO;
+        [self.berlakuHinggaTextField setError:@"Berlaku hingga tidak boleh kosong"];
+        if (errorTextField == nil) {
+            errorTextField = self.berlakuHinggaTextField;
+        }
+    }
+    
+    if (errorTextField != nil) {
+        [errorTextField setAsFocus];
     }
     
     return result;

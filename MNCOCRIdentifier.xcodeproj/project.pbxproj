@@ -49,6 +49,8 @@
 		693BE51A2845C1FD004FA3E3 /* MNCOCRIdentifierDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 693BE4DC2844C455004FA3E3 /* MNCOCRIdentifierDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		696F3910284F0BE400F60C69 /* MOIUserDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = 696F390E284F0BE400F60C69 /* MOIUserDefault.h */; };
 		696F3911284F0BE400F60C69 /* MOIUserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F390F284F0BE400F60C69 /* MOIUserDefault.m */; };
+		696F3919284F2E3800F60C69 /* MOITextFieldView.h in Headers */ = {isa = PBXBuildFile; fileRef = 696F3917284F2E3800F60C69 /* MOITextFieldView.h */; };
+		696F391A284F2E3800F60C69 /* MOITextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F3918284F2E3800F60C69 /* MOITextFieldView.m */; };
 		C8FBFCA97367BE825B9874D4 /* Pods_MNCOCRIdentifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E23F4F687830F9C009F93BC /* Pods_MNCOCRIdentifier.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,8 @@
 		693BE5142845B9C6004FA3E3 /* MOIIBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIIBottomView.m; sourceTree = "<group>"; };
 		696F390E284F0BE400F60C69 /* MOIUserDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOIUserDefault.h; sourceTree = "<group>"; };
 		696F390F284F0BE400F60C69 /* MOIUserDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIUserDefault.m; sourceTree = "<group>"; };
+		696F3917284F2E3800F60C69 /* MOITextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOITextFieldView.h; sourceTree = "<group>"; };
+		696F3918284F2E3800F60C69 /* MOITextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOITextFieldView.m; sourceTree = "<group>"; };
 		E36121820995B7527C88B559 /* Pods-MNCOCRIdentifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MNCOCRIdentifier.debug.xcconfig"; path = "../../ML Kit/Pods/Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +194,7 @@
 		693BE4D02844C3FB004FA3E3 /* Correction */ = {
 			isa = PBXGroup;
 			children = (
+				696F3912284F2DFE00F60C69 /* UI */,
 				693BE4D12844C40E004FA3E3 /* MOICorrectionViewController.h */,
 				693BE4D22844C40E004FA3E3 /* MOICorrectionViewController.m */,
 			);
@@ -271,6 +276,15 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		696F3912284F2DFE00F60C69 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				696F3917284F2E3800F60C69 /* MOITextFieldView.h */,
+				696F3918284F2E3800F60C69 /* MOITextFieldView.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		D51C8052D00272FFE1683D54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +303,7 @@
 				693BE5152845B9C6004FA3E3 /* MOIIBottomView.h in Headers */,
 				693BE4F82844C5BA004FA3E3 /* MNCOCRIdentifierResult.h in Headers */,
 				693BE51A2845C1FD004FA3E3 /* MNCOCRIdentifierDelegate.h in Headers */,
+				696F3919284F2E3800F60C69 /* MOITextFieldView.h in Headers */,
 				693BE4C32844C2B6004FA3E3 /* MNCOCRIdentifierClient.h in Headers */,
 				693BE4F42844C5A6004FA3E3 /* MOIKTPDataModel.h in Headers */,
 				693BE4C92844C384004FA3E3 /* MOISplashScreenViewController.h in Headers */,
@@ -430,6 +445,7 @@
 				693BE4D42844C40E004FA3E3 /* MOICorrectionViewController.m in Sources */,
 				693BE5122845B9B7004FA3E3 /* MOIIKTPFrameView.m in Sources */,
 				696F3911284F0BE400F60C69 /* MOIUserDefault.m in Sources */,
+				696F391A284F2E3800F60C69 /* MOITextFieldView.m in Sources */,
 				693BE5092844C616004FA3E3 /* MOINumberValidationModel.m in Sources */,
 				693BE4F92844C5BA004FA3E3 /* MNCOCRIdentifierResult.m in Sources */,
 				693BE4FD2844C5D5004FA3E3 /* MOIReligionModel.m in Sources */,
