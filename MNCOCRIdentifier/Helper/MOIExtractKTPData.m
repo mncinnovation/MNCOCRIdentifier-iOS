@@ -12,6 +12,12 @@
 @import MLKitTextRecognition;
 @import MLKitTextRecognitionCommon;
 
+@interface MOIExtractKTPData ()
+
+@property (nonatomic) NSMutableArray *imageArray;
+
+@end
+
 @implementation MOIExtractKTPData
 
 - (void)extract:(UIImage *)image completion:(ExtractKTPCallback)completion {
@@ -312,6 +318,8 @@
     }
     return ktpData;
 }
+
+
 
 - (NSString *)findData:(NSArray*)textBlocks line:(MLKTextLine *)currentLine {
     NSString *result = @"";

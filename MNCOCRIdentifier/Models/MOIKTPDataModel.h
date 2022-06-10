@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSDictionary *)dictionary;
 - (void)trimAllWhiteSpace;
+- (CGFloat)insertData:(MOIKTPDataModel *)data;
 
 @end
 

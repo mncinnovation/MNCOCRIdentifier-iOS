@@ -26,8 +26,10 @@ static const CGFloat percentageToPass = 80;
 @interface MOIIdentifierViewController () <MOIDismissDelegate, MOIICameraDelegate> {
     NSBundle *bundle;
     NSTimer *timer;
+    NSMutableArray *capturedImages;
     UIImage *lastImage;
     CGRect lastRect;
+    MOIKTPDataModel *ktpData;
     BOOL isCardInFrame;
     BOOL hasCompleteScanning;
     int countdown;
@@ -38,6 +40,7 @@ static const CGFloat percentageToPass = 80;
 @property (strong, nonatomic) MOIIBottomView *bottomView;
 @property (strong, nonatomic) UIView *coordinateView;
 @property (strong, nonatomic) UIView *captureFlashView;
+
 
 @end
 
@@ -56,6 +59,8 @@ static const CGFloat percentageToPass = 80;
     [super viewDidLoad];
     
     hasCompleteScanning = NO;
+    capturedImages = [NSMutableArray new];
+    ktpData = [MOIKTPDataModel new];
     
     [self setupView];
 }
@@ -220,6 +225,7 @@ static const CGFloat percentageToPass = 80;
                     NSLog(@"show");
                 }
             } else {
+                [self->capturedImages removeAllObjects];
                 [self stopTimer];
                 NSLog(@"hide");
                 [self hideBottomView:YES];
@@ -251,6 +257,7 @@ static const CGFloat percentageToPass = 80;
 - (void)timerHandler {
     NSString *countString = [NSString stringWithFormat:@"%d", countdown];
     self.bottomView.counterLabel.text = countString;
+    [capturedImages addObject:lastImage];
     countdown -= 1;
     if (countdown < 0) {
         hasCompleteScanning = YES;
@@ -280,40 +287,61 @@ static const CGFloat percentageToPass = 80;
         self.captureFlashView.alpha = 1.0;
     } completion:^(BOOL finished) {
         self.captureFlashView.alpha = 0.0;
-        [self cropImage];
-        
-        MOIExtractKTPData *extractKTPData = [MOIExtractKTPData new];
-        [extractKTPData extract:self->lastImage completion:^(MOIKTPDataModel * _Nullable data, CGFloat completedPercentage) {
-            self->hasCompleteScanning = NO;
-            if (completedPercentage == 0) {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"KTP not detected" message:@"Please capture again" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *closeButton = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                    [self.cameraView startCamera];
-                }];
-                
-                [alert addAction:closeButton];
-                
-                [self presentViewController:alert animated:YES completion:nil];
-            } else {
-                NSLog(@"%@", data);
-                UIImage *rotatedImage = [UIImage imageWithCGImage:self->lastImage.CGImage scale:1.0 orientation:UIImageOrientationRight];
-                MOICorrectionViewController *correctionController = [[MOICorrectionViewController alloc] initWithNibName:nil bundle:self->bundle];
-                correctionController.modalPresentationStyle = UIModalPresentationFullScreen;
-                correctionController.ktpData = data;
-                correctionController.ktpImage = rotatedImage;
-                correctionController.dismissDelegate = self;
-                correctionController.resultDelegate = self.resultDelegate;
-                [self presentViewController:correctionController animated:YES completion:nil];
-            }
-        }];
+        self->lastImage = [self cropImage:self->lastImage];
+        [self completedData];
+//        MOIExtractKTPData *extractKTPData = [MOIExtractKTPData new];
+//        [extractKTPData extract:self->lastImage completion:^(MOIKTPDataModel * _Nullable data, CGFloat completedPercentage) {
+//            self->hasCompleteScanning = NO;
+//            if (completedPercentage == 0) {
+//                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"KTP not detected" message:@"Please capture again" preferredStyle:UIAlertControllerStyleAlert];
+//                UIAlertAction *closeButton = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//                    [self.cameraView startCamera];
+//                }];
+//
+//                [alert addAction:closeButton];
+//
+//                [self presentViewController:alert animated:YES completion:nil];
+//            } else {
+//                NSLog(@"%@", data);
+//                UIImage *rotatedImage = [UIImage imageWithCGImage:self->lastImage.CGImage scale:1.0 orientation:UIImageOrientationRight];
+//                MOICorrectionViewController *correctionController = [[MOICorrectionViewController alloc] initWithNibName:nil bundle:self->bundle];
+//                correctionController.modalPresentationStyle = UIModalPresentationFullScreen;
+//                correctionController.ktpData = data;
+//                correctionController.ktpImage = rotatedImage;
+//                correctionController.dismissDelegate = self;
+//                correctionController.resultDelegate = self.resultDelegate;
+//                [self presentViewController:correctionController animated:YES completion:nil];
+//            }
+//        }];
     }];
 }
 
-- (void)cropImage {
-    CGImageRef imageRef = CGImageCreateWithImageInRect([lastImage CGImage], lastRect);
+- (void)completedData {
+    if (capturedImages.count > 0) {
+        UIImage *croppedImage = [self cropImage:capturedImages.lastObject];
+        MOIExtractKTPData *extractKTPData = [MOIExtractKTPData new];
+        [extractKTPData extract:croppedImage completion:^(MOIKTPDataModel * _Nullable data, CGFloat completedPercentage) {
+            CGFloat percentage = [self->ktpData insertData:data];
+            [self->capturedImages removeLastObject];
+            if (percentage == 100) {
+                [self finishExtracting];
+            } else if (self->capturedImages.count > 0) {
+                [self completedData];
+            }
+        }];
+    }
+}
+
+- (void)finishExtracting {
+    NSLog(ktpData);
+}
+
+
+- (UIImage *)cropImage:(UIImage *)image {
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], lastRect);
     UIImage *cropped = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
-    lastImage = cropped;
+    return cropped;
 }
 
 - (void)flashTapped {
