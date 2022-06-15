@@ -59,7 +59,7 @@
     CGFloat count = 0;
     
     if (self.provinsi == nil) {
-        if (data.provinsi != nil) {
+        if (data.provinsi != nil && ![data.provinsi isEqual: @""]) {
             self.provinsi = data.provinsi;
             count++;
         }
@@ -68,7 +68,7 @@
     }
     
     if (self.kabkota == nil) {
-        if (data.kabkota != nil) {
+        if (data.kabkota != nil && ![data.kabkota  isEqual: @""]) {
             self.kabkota = data.kabkota;
             count++;
         }
@@ -77,7 +77,7 @@
     }
     
     if (self.NIK == nil) {
-        if (data.NIK != nil) {
+        if (data.NIK != nil && ![data.NIK  isEqual: @""]) {
             self.NIK = data.NIK;
             count++;
         }
@@ -86,7 +86,7 @@
     }
     
     if (self.nama == nil) {
-        if (data.nama != nil) {
+        if (data.nama != nil && ![data.nama  isEqual: @""]) {
             self.nama = data.nama;
             count++;
         }
@@ -95,7 +95,7 @@
     }
     
     if (self.tempatLahir == nil) {
-        if (data.tempatLahir != nil) {
+        if (data.tempatLahir != nil && ![data.tempatLahir  isEqual: @""]) {
             self.tempatLahir = data.tempatLahir;
             count++;
         }
@@ -104,7 +104,7 @@
     }
     
     if (self.tanggalLahir == nil) {
-        if (data.tanggalLahir != nil) {
+        if (data.tanggalLahir != nil && ![data.tanggalLahir  isEqual: @""]) {
             self.tanggalLahir = data.tanggalLahir;
             count++;
         }
@@ -113,7 +113,7 @@
     }
     
     if (self.jenisKelamin == nil) {
-        if (data.jenisKelamin != nil) {
+        if (data.jenisKelamin != nil && ![data.jenisKelamin  isEqual: @""]) {
             self.jenisKelamin = data.jenisKelamin;
             count++;
         }
@@ -122,7 +122,7 @@
     }
     
     if (self.golDarah == nil) {
-        if (data.golDarah != nil) {
+        if (data.golDarah != nil && ![data.golDarah  isEqual: @""]) {
             self.golDarah = data.golDarah;
             count++;
         }
@@ -131,7 +131,7 @@
     }
     
     if (self.alamat == nil) {
-        if (data.alamat != nil) {
+        if (data.alamat != nil && ![data.alamat  isEqual: @""]) {
             self.alamat = data.alamat;
             count++;
         }
@@ -140,7 +140,7 @@
     }
     
     if (self.rt == nil) {
-        if (data.rt != nil) {
+        if (data.rt != nil && ![data.rt  isEqual: @""]) {
             self.rt = data.rt;
             count++;
         }
@@ -149,7 +149,7 @@
     }
     
     if (self.rw == nil) {
-        if (data.rw != nil) {
+        if (data.rw != nil && ![data.rw  isEqual: @""]) {
             self.rw = data.rw;
             count++;
         }
@@ -158,7 +158,7 @@
     }
     
     if (self.kelurahan == nil) {
-        if (data.kelurahan != nil) {
+        if (data.kelurahan != nil && ![data.kelurahan  isEqual: @""]) {
             self.kelurahan = data.kelurahan;
             count++;
         }
@@ -167,7 +167,7 @@
     }
     
     if (self.kecamatan == nil) {
-        if (data.kecamatan != nil) {
+        if (data.kecamatan != nil && ![data.kecamatan  isEqual: @""]) {
             self.kecamatan = data.kecamatan;
             count++;
         }
@@ -176,7 +176,7 @@
     }
     
     if (self.agama == nil) {
-        if (data.agama != nil) {
+        if (data.agama != nil && ![data.agama  isEqual: @""]) {
             self.agama = data.agama;
             count++;
         }
@@ -185,7 +185,7 @@
     }
     
     if (self.statusPerkawinan == nil) {
-        if (data.statusPerkawinan != nil) {
+        if (data.statusPerkawinan != nil && ![data.statusPerkawinan  isEqual: @""]) {
             self.statusPerkawinan = data.statusPerkawinan;
             count++;
         }
@@ -193,9 +193,9 @@
         count++;
     }
     
-    if (self.statusPerkawinan == nil) {
-        if (data.statusPerkawinan != nil) {
-            self.statusPerkawinan = data.statusPerkawinan;
+    if (self.pekerjaan == nil) {
+        if (data.pekerjaan != nil && ![data.pekerjaan  isEqual: @""]) {
+            self.pekerjaan = data.pekerjaan;
             count++;
         }
     } else {
@@ -203,7 +203,7 @@
     }
     
     if (self.kewarganegaraan == nil) {
-        if (data.kewarganegaraan != nil) {
+        if (data.kewarganegaraan != nil && ![data.kewarganegaraan  isEqual: @""]) {
             self.kewarganegaraan = data.kewarganegaraan;
             count++;
         }
@@ -212,7 +212,7 @@
     }
     
     if (self.berlakuHingga == nil) {
-        if (data.berlakuHingga != nil) {
+        if (data.berlakuHingga != nil && ![data.berlakuHingga  isEqual: @""]) {
             self.berlakuHingga = data.berlakuHingga;
             count++;
         }

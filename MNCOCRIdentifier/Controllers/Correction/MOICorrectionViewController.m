@@ -366,6 +366,7 @@ NSDate *temporaryBirthDate;
     self.agamaTextField.text = self.ktpData.agama;
     self.statusPerkawinanTextField.text = self.ktpData.statusPerkawinan;
     self.pekerjaanTextField.text = self.ktpData.pekerjaan;
+    self.kewarganegaraanTextField.text = self.ktpData.kewarganegaraan;
     self.berlakuHinggaTextField.text = self.ktpData.berlakuHingga;
 }
 

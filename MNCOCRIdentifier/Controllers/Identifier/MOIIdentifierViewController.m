@@ -41,7 +41,6 @@ static const CGFloat percentageToPass = 80;
 @property (strong, nonatomic) UIView *coordinateView;
 @property (strong, nonatomic) UIView *captureFlashView;
 
-
 @end
 
 @implementation MOIIdentifierViewController
@@ -60,7 +59,6 @@ static const CGFloat percentageToPass = 80;
     
     hasCompleteScanning = NO;
     capturedImages = [NSMutableArray new];
-    ktpData = [MOIKTPDataModel new];
     
     [self setupView];
 }
@@ -241,9 +239,9 @@ static const CGFloat percentageToPass = 80;
 }
 
 - (void)startTimer {
-    countdown = 3;
+    countdown = 6;
     if (timer == nil) {
-        timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerHandler) userInfo:nil repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerHandler) userInfo:nil repeats:YES];
     }
 }
 
@@ -255,7 +253,7 @@ static const CGFloat percentageToPass = 80;
 }
 
 - (void)timerHandler {
-    NSString *countString = [NSString stringWithFormat:@"%d", countdown];
+    NSString *countString = [NSString stringWithFormat:@"%d", (countdown/2)];
     self.bottomView.counterLabel.text = countString;
     [capturedImages addObject:lastImage];
     countdown -= 1;
@@ -288,52 +286,52 @@ static const CGFloat percentageToPass = 80;
     } completion:^(BOOL finished) {
         self.captureFlashView.alpha = 0.0;
         self->lastImage = [self cropImage:self->lastImage];
-        [self completedData];
-//        MOIExtractKTPData *extractKTPData = [MOIExtractKTPData new];
-//        [extractKTPData extract:self->lastImage completion:^(MOIKTPDataModel * _Nullable data, CGFloat completedPercentage) {
-//            self->hasCompleteScanning = NO;
-//            if (completedPercentage == 0) {
-//                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"KTP not detected" message:@"Please capture again" preferredStyle:UIAlertControllerStyleAlert];
-//                UIAlertAction *closeButton = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-//                    [self.cameraView startCamera];
-//                }];
-//
-//                [alert addAction:closeButton];
-//
-//                [self presentViewController:alert animated:YES completion:nil];
-//            } else {
-//                NSLog(@"%@", data);
-//                UIImage *rotatedImage = [UIImage imageWithCGImage:self->lastImage.CGImage scale:1.0 orientation:UIImageOrientationRight];
-//                MOICorrectionViewController *correctionController = [[MOICorrectionViewController alloc] initWithNibName:nil bundle:self->bundle];
-//                correctionController.modalPresentationStyle = UIModalPresentationFullScreen;
-//                correctionController.ktpData = data;
-//                correctionController.ktpImage = rotatedImage;
-//                correctionController.dismissDelegate = self;
-//                correctionController.resultDelegate = self.resultDelegate;
-//                [self presentViewController:correctionController animated:YES completion:nil];
-//            }
-//        }];
+        self->ktpData = [MOIKTPDataModel new];
+        [self extractedData];
     }];
 }
 
-- (void)completedData {
+- (void)extractedData {
     if (capturedImages.count > 0) {
         UIImage *croppedImage = [self cropImage:capturedImages.lastObject];
         MOIExtractKTPData *extractKTPData = [MOIExtractKTPData new];
         [extractKTPData extract:croppedImage completion:^(MOIKTPDataModel * _Nullable data, CGFloat completedPercentage) {
             CGFloat percentage = [self->ktpData insertData:data];
             [self->capturedImages removeLastObject];
-            if (percentage == 100) {
-                [self finishExtracting];
+            if (percentage == 100 || self->capturedImages.count == 0) {
+                self->hasCompleteScanning = NO;
+                if (percentage < 50) {
+                    [self showErrorMessage];
+                } else {
+                    [self  finishExtracting];
+                }
             } else if (self->capturedImages.count > 0) {
-                [self completedData];
+                [self extractedData];
             }
         }];
     }
 }
 
+- (void)showErrorMessage {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"KTP not detected" message:@"KTP not detected or collection of KTP data is not more than 50%, Please capture again" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *closeButton = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.cameraView startCamera];
+    }];
+    
+    [alert addAction:closeButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)finishExtracting {
-    NSLog(ktpData);
+    UIImage *rotatedImage = [UIImage imageWithCGImage:self->lastImage.CGImage scale:1.0 orientation:UIImageOrientationRight];
+    MOICorrectionViewController *correctionController = [[MOICorrectionViewController alloc] initWithNibName:nil bundle:self->bundle];
+    correctionController.modalPresentationStyle = UIModalPresentationFullScreen;
+    correctionController.ktpData = ktpData;
+    correctionController.ktpImage = rotatedImage;
+    correctionController.dismissDelegate = self;
+    correctionController.resultDelegate = self.resultDelegate;
+    [self presentViewController:correctionController animated:YES completion:nil];
 }
 
 
