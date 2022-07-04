@@ -20,13 +20,17 @@
 
 @implementation MOIExtractKTPData
 
-- (void)extract:(UIImage *)image completion:(ExtractKTPCallback)completion {
-    UIImage *rotatedImage = [UIImage imageWithCGImage:image.CGImage
-                                                scale:1.0
-                                          orientation:UIImageOrientationRight];
+- (void)extractImageFromCamera:(UIImage *)image isImageRotate:(BOOL)imageRotate completion:(ExtractKTPCallback)completion {
+    UIImage *imageToExtract;
     
-    MLKVisionImage *visionImage = [[MLKVisionImage alloc] initWithImage:rotatedImage];
-    visionImage.orientation = rotatedImage.imageOrientation;
+    if (imageRotate) {
+        imageToExtract = [UIImage imageWithCGImage:image.CGImage scale:1.0 orientation:UIImageOrientationRight];
+    } else {
+        imageToExtract = image;
+    }
+    
+    MLKVisionImage *visionImage = [[MLKVisionImage alloc] initWithImage:imageToExtract];
+    visionImage.orientation = imageToExtract.imageOrientation;
     MLKTextRecognizer *textRecognizer = [MLKTextRecognizer textRecognizerWithOptions:[[MLKTextRecognizerOptions alloc] init]];
     [textRecognizer processImage:visionImage completion:^(MLKText * _Nullable text, NSError * _Nullable error) {
         if (error != nil || text == nil) {
@@ -490,7 +494,7 @@
         }
     }
     
-    return string;
+    return (string != nil) ? string : @"";
 }
 
 - (NSString *)filterMarriageStatus:(NSString *)string {

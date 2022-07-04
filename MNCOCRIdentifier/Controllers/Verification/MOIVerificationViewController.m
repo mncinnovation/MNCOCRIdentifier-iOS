@@ -239,6 +239,7 @@
     labelStackView.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(12, 16, 12, 16);
     
     label.font = [UIFont systemFontOfSize:14];
+    label.textColor = [UIColor blackColor];
     [labelStackView addArrangedSubview:label];
     [stackView addArrangedSubview:labelStackView];
     

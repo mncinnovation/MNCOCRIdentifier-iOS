@@ -15,6 +15,7 @@
 #import "MOIIKTPFrameView.h"
 #import "MOIIBottomView.h"
 #import "MOIUserDefault.h"
+#import "MNCOCRIdentifierResult.h"
 
 @import MLImage;
 @import MLKitObjectDetectionCommon;
@@ -295,7 +296,7 @@ static const CGFloat percentageToPass = 80;
     if (capturedImages.count > 0) {
         UIImage *croppedImage = [self cropImage:capturedImages.lastObject];
         MOIExtractKTPData *extractKTPData = [MOIExtractKTPData new];
-        [extractKTPData extract:croppedImage completion:^(MOIKTPDataModel * _Nullable data, CGFloat completedPercentage) {
+        [extractKTPData extractImageFromCamera:croppedImage isImageRotate:YES completion:^(MOIKTPDataModel * _Nullable data, CGFloat completedPercentage) {
             CGFloat percentage = [self->ktpData insertData:data];
             [self->capturedImages removeLastObject];
             if (percentage == 100 || self->capturedImages.count == 0) {
@@ -303,7 +304,7 @@ static const CGFloat percentageToPass = 80;
                 if (percentage < 50) {
                     [self showErrorMessage];
                 } else {
-                    [self  finishExtracting];
+                    [self finishExtracting];
                 }
             } else if (self->capturedImages.count > 0) {
                 [self extractedData];
@@ -325,13 +326,31 @@ static const CGFloat percentageToPass = 80;
 
 - (void)finishExtracting {
     UIImage *rotatedImage = [UIImage imageWithCGImage:self->lastImage.CGImage scale:1.0 orientation:UIImageOrientationRight];
-    MOICorrectionViewController *correctionController = [[MOICorrectionViewController alloc] initWithNibName:nil bundle:self->bundle];
-    correctionController.modalPresentationStyle = UIModalPresentationFullScreen;
-    correctionController.ktpData = ktpData;
-    correctionController.ktpImage = rotatedImage;
-    correctionController.dismissDelegate = self;
-    correctionController.resultDelegate = self.resultDelegate;
-    [self presentViewController:correctionController animated:YES completion:nil];
+    if ([MOIUserDefault isCameraOnly]) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"ktp.png"];
+        
+        [UIImageJPEGRepresentation(rotatedImage, 1) writeToFile:filePath atomically:YES];
+        
+        [ktpData replaceDataNil];
+        
+        MNCOCRIdentifierResult *result = [MNCOCRIdentifierResult new];
+        result.isSuccess = YES;
+        result.errorMessage = @"Success";
+        result.imagePath = filePath;
+        result.ktp = ktpData;
+        
+        [self.resultDelegate ocrResult:result];
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        MOICorrectionViewController *correctionController = [[MOICorrectionViewController alloc] initWithNibName:nil bundle:self->bundle];
+        correctionController.modalPresentationStyle = UIModalPresentationFullScreen;
+        correctionController.ktpData = ktpData;
+        correctionController.ktpImage = rotatedImage;
+        correctionController.dismissDelegate = self;
+        correctionController.resultDelegate = self.resultDelegate;
+        [self presentViewController:correctionController animated:YES completion:nil];
+    }
 }
 
 

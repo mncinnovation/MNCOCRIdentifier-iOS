@@ -17,4 +17,13 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"FLASH_ENABLE"];
 }
 
++ (void)setCameraOnly:(BOOL)isCameraOnly {
+    [[NSUserDefaults standardUserDefaults] setBool:isCameraOnly forKey:@"CAMERA_ONLY"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (BOOL)isCameraOnly {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"CAMERA_ONLY"];
+}
+
 @end

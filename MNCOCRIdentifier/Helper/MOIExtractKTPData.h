@@ -16,7 +16,9 @@ typedef void (^ExtractKTPCallback)(MOIKTPDataModel *_Nullable data, CGFloat comp
 
 @interface MOIExtractKTPData : NSObject
 
-- (void)extract:(UIImage *)image completion:(ExtractKTPCallback)completion NS_SWIFT_NAME(process(_:completion:));
+- (void)extractImageFromCamera:(UIImage *)image isImageRotate:(BOOL)imageRotate completion:(ExtractKTPCallback)completion NS_SWIFT_NAME(process(_:completion:));
+
+
 
 @end
 

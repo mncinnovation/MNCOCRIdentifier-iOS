@@ -44,6 +44,7 @@
         
         self.textField = [UITextField new];
         self.textField.font = [UIFont systemFontOfSize:14];
+        self.textField.textColor = [UIColor blackColor];
         self.textField.delegate = self;
         self.textField.returnKeyType = UIReturnKeyNext;
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;

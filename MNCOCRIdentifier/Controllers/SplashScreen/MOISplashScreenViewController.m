@@ -52,6 +52,7 @@
     
     UILabel *contentLabel = [UILabel new];
     contentLabel.text = @"Optical Character Recognition";
+    contentLabel.textColor = [UIColor blackColor];
     contentLabel.numberOfLines = 0;
     contentLabel.font = [UIFont systemFontOfSize:32];
     contentLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -63,6 +64,7 @@
     
     UILabel *footerLabel = [[UILabel alloc] init];
     footerLabel.text = @"Developed by : ";
+    footerLabel.textColor = [UIColor blackColor];
     [footerLabel setFont:[UIFont systemFontOfSize:12]];
     
     UIImage *footerImage = [UIImage imageNamed:@"ic_innocent" inBundle:bundle compatibleWithTraitCollection:nil];

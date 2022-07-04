@@ -155,8 +155,8 @@
 				693BE4C52844C2BA004FA3E3 /* Controllers */,
 				693BE4DA2844C439004FA3E3 /* Delegates */,
 				693BE4DB2844C440004FA3E3 /* Helper */,
-				693BE4EA2844C56F004FA3E3 /* Images */,
 				693BE4ED2844C582004FA3E3 /* Models */,
+				693BE4EA2844C56F004FA3E3 /* Images */,
 			);
 			path = MNCOCRIdentifier;
 			sourceTree = "<group>";

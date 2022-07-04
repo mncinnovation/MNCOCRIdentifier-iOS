@@ -223,4 +223,78 @@
     return (count/18) * 100;
 }
 
+- (void)replaceDataNil {
+    if (self.provinsi == nil) {
+        self.provinsi = @"";
+    }
+    
+    if (self.kabkota == nil) {
+        self.provinsi = @"";
+    }
+    
+    if (self.NIK == nil) {
+        self.NIK = @"";
+    }
+    
+    if (self.nama == nil) {
+        self.nama = @"";
+    }
+    
+    if (self.tempatLahir == nil) {
+        self.tempatLahir = @"";
+    }
+    
+    if (self.tanggalLahir == nil) {
+        self.tanggalLahir = @"";
+    }
+    
+    if (self.golDarah == nil) {
+        self.golDarah = @"";
+    }
+    
+    if (self.alamat == nil) {
+        self.alamat = @"";
+    }
+    
+    if (self.rt == nil) {
+        self.rt = @"";
+    }
+    
+    if (self.rw == nil) {
+        self.rw = @"";
+    }
+    
+    if (self.kelurahan == nil) {
+        self.kelurahan = @"";
+    }
+    
+    if (self.kecamatan == nil) {
+        self.kecamatan = @"";
+    }
+    
+    if (self.jenisKelamin == nil) {
+        self.jenisKelamin = @"";
+    }
+    
+    if (self.agama == nil) {
+        self.agama = @"";
+    }
+    
+    if (self.statusPerkawinan == nil) {
+        self.statusPerkawinan = @"";
+    }
+    
+    if (self.pekerjaan == nil) {
+        self.pekerjaan = @"";
+    }
+    
+    if (self.kewarganegaraan == nil) {
+        self.kewarganegaraan = @"";
+    }
+    
+    if (self.berlakuHingga == nil) {
+        self.berlakuHingga = @"";
+    }
+}
+
 @end

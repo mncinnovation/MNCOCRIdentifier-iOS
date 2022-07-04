@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setFlashEnable:(BOOL)isEnable;
 + (BOOL)isFlashEnable;
++ (void)setCameraOnly:(BOOL)isCameraOnly;
++ (BOOL)isCameraOnly;
 
 @end
 
