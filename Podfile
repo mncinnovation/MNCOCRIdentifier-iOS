@@ -6,5 +6,7 @@ target 'MNCOCRIdentifier' do
   use_frameworks!
 
   # Pods for MNCOCRIdentifier
+  pod 'GoogleMLKit/TextRecognition'
+  pod 'GoogleMLKit/ObjectDetection'
 
 end

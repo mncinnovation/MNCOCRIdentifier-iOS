@@ -55,7 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35491DB3E7B7FC6F19FFEDAE /* Pods-MNCOCRIdentifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MNCOCRIdentifier.release.xcconfig"; path = "../../ML Kit/Pods/Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier.release.xcconfig"; sourceTree = "<group>"; };
+		35491DB3E7B7FC6F19FFEDAE /* Pods-MNCOCRIdentifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MNCOCRIdentifier.release.xcconfig"; path = "Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier.release.xcconfig"; sourceTree = "<group>"; };
 		3E23F4F687830F9C009F93BC /* Pods_MNCOCRIdentifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MNCOCRIdentifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		693BE4B52844C1E1004FA3E3 /* MNCOCRIdentifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MNCOCRIdentifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		693BE4B82844C1E1004FA3E3 /* MNCOCRIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNCOCRIdentifier.h; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		696F390F284F0BE400F60C69 /* MOIUserDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOIUserDefault.m; sourceTree = "<group>"; };
 		696F3917284F2E3800F60C69 /* MOITextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOITextFieldView.h; sourceTree = "<group>"; };
 		696F3918284F2E3800F60C69 /* MOITextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOITextFieldView.m; sourceTree = "<group>"; };
-		E36121820995B7527C88B559 /* Pods-MNCOCRIdentifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MNCOCRIdentifier.debug.xcconfig"; path = "../../ML Kit/Pods/Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier.debug.xcconfig"; sourceTree = "<group>"; };
+		E36121820995B7527C88B559 /* Pods-MNCOCRIdentifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MNCOCRIdentifier.debug.xcconfig"; path = "Target Support Files/Pods-MNCOCRIdentifier/Pods-MNCOCRIdentifier.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -516,7 +516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -571,7 +571,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -585,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E36121820995B7527C88B559 /* Pods-MNCOCRIdentifier.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -615,6 +616,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 35491DB3E7B7FC6F19FFEDAE /* Pods-MNCOCRIdentifier.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
